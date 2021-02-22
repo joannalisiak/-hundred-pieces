@@ -1,1 +1,60 @@
 // Specific CSS for your home-page
+// HOME PAGE STYLE
+
+// TABLE OF CONTENTS
+// 1. BANNER
+// 2. HOW IT WORKS
+// 3. FOOTER
+// -----------------------------
+
+
+// 1. BANNER
+
+.banner-row {
+    padding: 15vh 0 20vh 0;
+
+}
+
+h1,
+h3 {
+    font-weight: 900;
+    line-height: 1em;
+}
+
+h5 {
+    font-weight: 700;
+}
+
+
+
+// HOW IT WORKS
+
+.how-it-works {
+    justify-content: center;
+    text-align: center;
+}
+
+.images-card {
+    width: 140px;
+    height: auto;
+    display: flex;
+    align-self: center;
+}
+
+
+
+// FOOTER
+
+footer {
+    height: 20vh;
+    background-color: #f4f4f4;
+}
+
+ul {
+    list-style: none;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+}
