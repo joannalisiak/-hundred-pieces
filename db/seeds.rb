@@ -20,7 +20,7 @@ puts 'Creating 5 fake users...'
       )
   new_user.save!
 
-  15.times do
+  5.times do
     new_lego = Lego.new(
         name: Faker::Game.title,
         price: [10, 15, 20, 25, 30, 35, 40, 45, 50].sample,
