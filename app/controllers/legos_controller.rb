@@ -3,7 +3,7 @@ class LegosController < ApplicationController
   before_action :set_lego, only: [:show, :destroy, :edit, :update]
 
   def index
-    @legos = policy_scope(Lego).order.(created_at: :desc)
+    @legos = policy_scope(Lego).order(created_at: :desc)
   end
 
   def show
@@ -31,13 +31,14 @@ class LegosController < ApplicationController
   end
 
   def update
-#     authorize @lego
     @lego.update(lego_params)
+    authorize @lego
     redirect_to legos_path(@lego)
   end
 
   def destroy
     @lego.destroy
+    authorize @lego
     redirect_to legos_path
   end
 
