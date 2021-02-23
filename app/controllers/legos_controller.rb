@@ -1,5 +1,5 @@
 class LegosController < ApplicationController
-  before_action :set_lego, only: [:show]
+  before_action :set_lego, only: [:show, :destroy, :edit, :update]
   def index
     @legos = Lego.all
   end
@@ -25,9 +25,13 @@ class LegosController < ApplicationController
   end
 
   def update
+    @lego.update(lego_params)
+    redirect_to legos_path(@lego)
   end
 
   def destroy
+    @lego.destroy
+    redirect_to legos_path
   end
 
   private
