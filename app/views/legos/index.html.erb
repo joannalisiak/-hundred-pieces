@@ -1,8 +1,27 @@
 <div class="container">
-  <h2>All Legos</h2>
-  <% @legos.each do |lego| %>
-  <div class="card">
-  <%= link_to  lego.name, lego_path(lego) %>
+  <div class="row">
+    <div class="col-12">
+      <h2>All Legos</h2>
+      <% @legos.each do |lego| %>
+        <div class="card-product">
+          <% if false %>
+            <img src="<%= lego.image_url %>" alt="lego">
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1516641051054-9df6a1aad654?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2300&q=80" alt="lego">
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to lego.name, lego_path(lego) %></h2>
+            <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for <%= lego.price %> EUR per day.</p>
+          </div>
+        </div>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2>Product name</h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
 </div>
