@@ -1,5 +1,5 @@
 class LegosController < ApplicationController
-
+  before_action :set_lego, only: [:show]
   def index
     @legos = Lego.all
   end
@@ -24,5 +24,7 @@ class LegosController < ApplicationController
 
   private
 
-  
+  def set_lego
+    @legos = Lego.find(params[:id])
+  end
 end
