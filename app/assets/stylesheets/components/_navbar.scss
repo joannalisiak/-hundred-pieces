@@ -8,6 +8,9 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+.logo-nav {
+  font-family: $headers-font;
+  color: $red;
+  font-size: 900;
 }
