@@ -1,28 +1,25 @@
-<%# # TODO: TWO CARDS PER ROW CENTERED %>
-
 <div class="container">
+  <h2 class="mb-4 mt-4 text-center">Legos around you</h2>
   <div class="row">
-    <div class="col-sm-12">
-      <h2 class="mb-4 mt-4">Legos around you</h2>
-      <% @legos.each do |lego| %>
-      <div class="card-product">
-        <% if lego.photo.attached? %>
-          <%= cl_image_tag lego.photo.key, crop: :fill %>
-        <% else %>
-          <%= image_tag 'heads.jpg' %>
-        <% end %>
-
-        <div class="card-product-infos">
-          <h2><%= link_to lego.name, lego_path(lego) %></h2>
-          <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for <%= number_with_precision(lego.price, precision: 2) %> EUR per day.</p>
-          <p><%= link_to "See more", lego_path(lego) %></p>
+    <% @legos.each do |lego| %>
+      <div class="col-sm-6">
+        <div class="card-product">
+           <% if lego.photo.attached? %>
+              <%= cl_image_tag lego.photo.key, crop: :fill %>
+            <% else %>
+              <%= image_tag 'heads.jpg' %>
+            <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to lego.name, lego_path(lego) %></h2>
+            <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for <%= number_with_precision(lego.price, precision: 2) %> EUR per day.</p>
+            <p><%= link_to "See more", lego_path(lego) %></p>
+          </div>
         </div>
-        <%# # WHILE BOOKING USER JOURNEY IS ADDED: USE BOOK NOW BUTTON (CHANGE STYLE - CURRENTLY SUCKS) %>
-        <%# <div>
-            <%= link_to "Book LEGO", "#", class: "btn btn-gradient" %>
-        <%# </div> %>
       </div>
-      <% end %>
-    </div>
+      <%# # WHILE BOOKING USER JOURNEY IS BEING ADDED: USE BOOK NOW BUTTON (CHANGE STYLE - CURRENTLY SUCKS) %>
+      <%# <div>
+        <%= link_to "Book LEGO", "#", class: "btn btn-gradient" %>
+      <%# </div> %>
+    <% end %>
   </div>
 </div>
