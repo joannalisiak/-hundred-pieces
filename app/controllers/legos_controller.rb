@@ -1,5 +1,6 @@
 class LegosController < ApplicationController
-  before_action :set_lego, only: [:show]
+
+  before_action :set_lego, only: [:show, :destroy, :edit, :update]
 
   def index
     @legos = policy_scope(Lego).order.(created_at: :desc)
@@ -30,11 +31,14 @@ class LegosController < ApplicationController
   end
 
   def update
-    authorize @lego
+#     authorize @lego
+    @lego.update(lego_params)
+    redirect_to legos_path(@lego)
   end
 
   def destroy
-    authorize @lego
+    @lego.destroy
+    redirect_to legos_path
   end
 
   private
@@ -44,6 +48,6 @@ class LegosController < ApplicationController
   end
 
   def lego_params
-    params.require(:lego).permit(:name, :price, :pieces, :description)
+    params.require(:lego).permit(:name, :price, :pieces, :description, :photo)
   end
 end
