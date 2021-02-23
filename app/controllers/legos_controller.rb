@@ -37,6 +37,6 @@ class LegosController < ApplicationController
   end
 
   def lego_params
-    params.require(:lego).permit(:name, :price, :pieces, :description)
+    params.require(:lego).permit(:name, :price, :pieces, :description, :photo)
   end
 end
