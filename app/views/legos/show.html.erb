@@ -1,6 +1,11 @@
 <div class="container my-5">
-    <div class="card d-flex rounded show">
-        <%= image_tag 'lego-game.jpg', class: "show-image" %>
+    <div class="card rounded show">
+      <% if @lego.photo.attached? %>
+    <%= cl_image_tag @lego.photo.key, crop: :fill, class: "show-image" %>
+    <% else %>
+      <%= image_tag 'lego-game.jpg', class: "show-image" %>
+    <% end %>
+
         <div class="details-show-text w-100 p-3">
             <h5><%= @lego.name %></h5>
             <p class="pr-5">pieces: <%= @lego.pieces %></p>
