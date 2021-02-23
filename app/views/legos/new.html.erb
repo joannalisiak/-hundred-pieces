@@ -1,12 +1,10 @@
-<div class="container mt-5">
-  <div class="form-new">
-    <p class="form-header">Add your lego offer here!</p>
-    <%= simple_form_for @lego do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :pieces %>
-    <%= f.input :description %>
-    <%= f.submit "Add your lego!", class: 'form-btn' %>
-    <% end %>
-  </div>
+
+<div class="container">
+<%= simple_form_for @lego, html: {class: "lego-form"} do |f| %>
+<%= f.input :name, input_html: {class: 'lego-name'} %>
+<%= f.input :price %>
+<%= f.input :pieces %>
+<%= f.input :description %>
+<%= f.submit %>
+<% end %>
 </div>
