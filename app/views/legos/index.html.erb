@@ -1,10 +1,10 @@
 <%# # TODO: TWO CARDS PER ROW CENTERED %>
 
 <div class="container">
+  <h2 class="mb-4 mt-4 text-center">Legos around you</h2>
   <div class="row">
-    <div class="col-sm-12">
-      <h2 class="mb-4 mt-4">Legos around you</h2>
-      <% @legos.each do |lego| %>
+    <% @legos.each do |lego| %>
+      <div class="col-sm-6">
         <div class="card-product">
           <%# WHEN CLOUDINARY IS ADDED: CHANGE if false TO if lego.photo.attached? %>
           <% if false %>
@@ -18,12 +18,12 @@
             <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for <%= lego.price %> EUR per day.</p>
             <p><%= link_to "See more", lego_path(lego) %></p>
           </div>
-          <%# # WHILE BOOKING USER JOURNEY IS ADDED: USE BOOK NOW BUTTON (CHANGE STYLE - CURRENTLY SUCKS) %>
-          <%# <div>
-            <%= link_to "Book LEGO", "#", class: "btn btn-gradient" %>
-          <%# </div> %>
         </div>
-      <% end %>
-    </div>
+      </div>
+      <%# # WHILE BOOKING USER JOURNEY IS BEING ADDED: USE BOOK NOW BUTTON (CHANGE STYLE - CURRENTLY SUCKS) %>
+      <%# <div>
+        <%= link_to "Book LEGO", "#", class: "btn btn-gradient" %>
+      <%# </div> %>
+    <% end %>
   </div>
 </div>
