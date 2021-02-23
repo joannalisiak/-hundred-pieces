@@ -1,5 +1,5 @@
-<%= simple_form_for @lego do |f| %>
-<%= f.input :name %>
+<%= simple_form_for @lego, html: {class: "lego-form"} do |f| %>
+<%= f.input :name, input_html: {class: 'lego-name'} %>
 <%= f.input :price %>
 <%= f.input :pieces %>
 <%= f.input :description %>
