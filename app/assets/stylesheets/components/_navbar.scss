@@ -13,4 +13,11 @@
   font-family: $headers-font;
   color: $red;
   font-size: 900;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: $red;
+  }
 }
+
+
