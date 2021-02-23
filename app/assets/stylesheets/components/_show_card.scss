@@ -1,0 +1,10 @@
+.show {
+    flex-direction: row;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+}
+
+.show-image {
+    width: 100%;
+}
