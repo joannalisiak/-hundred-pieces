@@ -8,9 +8,17 @@ class LegosController < ApplicationController
   end
 
   def new
+    @lego = Lego.new
   end
 
   def create
+    @lego = Lego.new(lego_params)
+    @lego.user = current_user
+    if @lego.save
+      redirect_to lego_path(@lego)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,6 +33,10 @@ class LegosController < ApplicationController
   private
 
   def set_lego
-    @legos = Lego.find(params[:id])
+    @lego = Lego.find(params[:id])
+  end
+
+  def lego_params
+    params.require(:lego).permit(:name, :price, :pieces, :description)
   end
 end
