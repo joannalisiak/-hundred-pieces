@@ -1,9 +1,12 @@
-<div class="container">
-    <div class="card">
-        <p><%= @lego.name %></p>
-        <p><%= @lego.price %></p>
-        <p><%= @lego.pieces %></p>
-        <p><%= @lego.description %></p>
+<div class="container my-5">
+    <div class="card d-flex rounded show justify-content-center">
+        <%= image_tag 'lego-game.jpg', class: "show-image" %>
+        <div class="p-3">
+            <h5><%= @lego.name %></h5>
+            <p>€ <%= number_with_precision(@lego.price, precision: 2) %></p>
+            <p><%= @lego.pieces %></p>
+            <p><%= @lego.description %></p>
+            <%= link_to "go back", legos_path, class: 'btn btn-danger' %>
+        </div>
     </div>
-    <%= link_to "go back", legos_path %>
 </div>
