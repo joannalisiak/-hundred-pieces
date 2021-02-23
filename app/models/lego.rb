@@ -5,5 +5,5 @@ class Lego < ApplicationRecord
   validates :name, presence: true
   validates :pieces, presence: true, numericality: { only_integer: true }
   validates :price, presence: true
-  validates :location, presence: true
+  # validates :location, presence: true
 end
