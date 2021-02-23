@@ -1,6 +1,6 @@
 <div class="container">
   <h2>All Legos</h2>
   <% @legos.each do |lego| %>
-    <%= lego.name %>
+  <%= link_to  lego.name, lego_path(lego) %>
   <% end %>
 </div>
