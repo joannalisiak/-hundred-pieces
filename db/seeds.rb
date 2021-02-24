@@ -9,6 +9,9 @@
 
 require 'faker'
 
+puts "Cleanign database..."
+Lego.destroy_all
+
 puts 'Creating 5 fake users...'
 5.times do
     new_user = User.new(
