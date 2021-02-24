@@ -1,6 +1,7 @@
 class LegosController < ApplicationController
 
   before_action :set_lego, only: [:show, :destroy, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @legos = policy_scope(Lego).order(created_at: :desc)
