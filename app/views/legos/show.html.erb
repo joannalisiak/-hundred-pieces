@@ -17,6 +17,8 @@
 </div>
 <div class="d-flex justify-content-center">
     <%= link_to "Go back", legos_path, class: 'btn btn-danger rounded mr-1' %>
+    <% if @lego.user == current_user %>
     <%= link_to "Edit", edit_lego_path(@lego), class: 'btn btn-danger rounded mr-1' %>
     <%= link_to "Delete", lego_path, class: 'btn btn-danger rounded', method: 'delete', data: {confirm: "Are you sure?"}%>
+    <% end %>
 </div>
