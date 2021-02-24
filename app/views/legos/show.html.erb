@@ -1,5 +1,5 @@
 <div class="container my-5">
-    <div class="card rounded show">
+    <div class="card rounded showcard">
       <% if @lego.photo.attached? %>
     <%= cl_image_tag @lego.photo.key, crop: :fill, class: "show-image" %>
     <% else %>
