@@ -2,6 +2,16 @@
   justify-content: space-between;
   align-items: center;
   background: white;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  transition: 0.6s;
+  padding: 0.5em 2em;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,6 +36,15 @@
     // -webkit-background-clip: text;
     // -webkit-text-fill-color: transparent;
   }
+}
+
+
+// class added on scroll to give nav animation
+.nav-scrolled {
+  padding: 1em 3em;
+  color: gray;
+  background-color: white;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
 }
 
 

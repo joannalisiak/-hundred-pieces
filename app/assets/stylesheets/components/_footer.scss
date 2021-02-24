@@ -1,12 +1,20 @@
 .footer {
   background: #F4F4F4;
-  display: flex;
   margin-top: 10px;
+  display: flex;
+
   align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
+  justify-content: space-evenly;
   color: rgba(0,0,0,0.3);
+
+
+  p {
+    font-size: 12px;
+  }
+
+.link-foter-list p:hover {
+  color: rgba(0, 0, 0, 0.664);
+  cursor: pointer;
 }
 .footer-links {
   display: flex;
@@ -20,8 +28,22 @@
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0.7;
 }
+
 .footer .fa-heart {
   color: #D23333;
+}
+
+.input-footer {
+  height: 2em;
+  border: none;
+  border-radius: 4px;
+}
+
+.input-footer::placeholder {
+  font-size: 10px;
+  color: rgb(194, 194, 194);
+}
+
 }
