@@ -5,6 +5,12 @@ class LegosController < ApplicationController
 
   def index
     @legos = policy_scope(Lego).order(created_at: :desc)
+    @markers = @legos.geocoded.map do |lego|
+      {
+        lat: lego.latitude,
+        lng: lego.longitude
+      }
+    end
   end
 
   def show
@@ -50,6 +56,6 @@ class LegosController < ApplicationController
   end
 
   def lego_params
-    params.require(:lego).permit(:name, :price, :pieces, :description, :photo)
+    params.require(:lego).permit(:name, :price, :pieces, :description, :address, :photo)
   end
 end

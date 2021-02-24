@@ -1,28 +1,33 @@
-<div class="container">
+<div class="p-2">
+<div class="d-flex">
+<div class="col-6">
 <% if !user_signed_in? %>
-<%= link_to 'go back', root_path, class: "btn btn-light"  %>
+<%= link_to 'go back', root_path, class: "mt-4 btn btn-light"  %>
 <% end %>
-  <h2 class="mb-4 mt-4 text-center">Legos around you</h2>
-  <div class="row">
+  <h2 class="mb-4 mt-4">Legos around you</h2>
     <% @legos.each do |lego| %>
-      <div class="col-sm-6">
+      <%= link_to lego_path(lego) do %>
         <div class="card-product">
+
            <% if lego.photo.attached? %>
               <%= cl_image_tag lego.photo.key, crop: :fill %>
             <% else %>
               <%= image_tag 'heads.jpg' %>
             <% end %>
+
           <div class="card-product-infos">
-            <h2><%= link_to lego.name, lego_path(lego) %></h2>
+            <h2 class="title-card"><%= lego.name %></h2>
             <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for <%= number_with_precision(lego.price, precision: 2) %> EUR per day.</p>
-            <p><%= link_to "See more", lego_path(lego) %></p>
           </div>
         </div>
-      </div>
-      <%# # WHILE BOOKING USER JOURNEY IS BEING ADDED: USE BOOK NOW BUTTON (CHANGE STYLE - CURRENTLY SUCKS) %>
-      <%# <div>
-        <%= link_to "Book LEGO", "#", class: "btn btn-gradient" %>
-      <%# </div> %>
+      <% end %>
     <% end %>
-  </div>
+</div>
+
+    <div
+    id="map"
+     style="width: 100%; height: 700px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
 </div>

@@ -26,6 +26,7 @@ puts 'Creating 5 fake users...'
         price: [10, 15, 20, 25, 30, 35, 40, 45, 50].sample,
         pieces: [100, 150, 200, 250, 300, 350, 400, 450, 500].sample,
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        address: Faker::Address.full_address
       )
     new_lego.user = new_user
     new_lego.save!

@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+  transition: 0.3s all;
+  transform: scale(1);
 }
 
 .card-product img {
@@ -30,16 +32,27 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  color: black;
 }
 
-.card-product a {
+.title-card {
   color: $red;
-  &:hover {
-    color: $yellow;
-    text-decoration: none;
-  }
+  transition: 0.3s ease;
+}
+
+.card-product:hover .title-card {
+  color: $yellow;
+  text-decoration: none;
+}
+
+.card-product:hover {
+  transform: scale(1.02);
 }
 
 .gap-column {
   column-gap: 10px;
+}
+
+a:hover {
+  text-decoration: none;
 }
