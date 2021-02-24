@@ -1,4 +1,7 @@
 <div class="container">
+<% if !user_signed_in? %>
+<%= link_to 'go back', root_path, class: "btn btn-light"  %>
+<% end %>
   <h2 class="mb-4 mt-4 text-center">Legos around you</h2>
   <div class="row">
     <% @legos.each do |lego| %>
