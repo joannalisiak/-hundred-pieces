@@ -23,9 +23,10 @@ puts 'Creating 5 fake users...'
   5.times do
     new_lego = Lego.new(
         name: Faker::Game.title,
-        price: (1..20).to_a.sample,
-        pieces: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000].sample,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        price: [10, 15, 20, 25, 30, 35, 40, 45, 50].sample,
+        pieces: [100, 150, 200, 250, 300, 350, 400, 450, 500].sample,
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        address: Faker::Address.full_address
       )
     new_lego.user = new_user
     new_lego.save!
