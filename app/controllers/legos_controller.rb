@@ -40,7 +40,7 @@ class LegosController < ApplicationController
   def update
     @lego.update(lego_params)
     authorize @lego
-    redirect_to legos_path(@lego)
+    redirect_to lego_path(@lego)
   end
 
   def destroy

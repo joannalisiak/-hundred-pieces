@@ -1,13 +1,15 @@
 .show {
     display: flex;
     flex-direction: row;
+    height: 300px;
     @media screen and (max-width: 1000px) {
       flex-direction: column;
     }
-}
-
-.show-image {
-  width: 50%;
+  }
+  
+  .show-image {
+    width: 50%;
+    object-fit: cover;
     @media screen and (max-width: 1000px) {
       width: 100%;
     }

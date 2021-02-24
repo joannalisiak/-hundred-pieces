@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="form-new">
-    <p class="form-header">Add your lego offer here!</p>
+    <p class="form-header">Add your LEGO offer</p>
     <%= simple_form_for @lego do |f| %>
     <%= f.input :name %>
     <%= f.input :price %>
@@ -8,6 +8,6 @@
     <%= f.input :description %>
     <%= f.input :address %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit "Add your lego!", class: 'form-btn' %>
+    <%= f.submit "Add your LEGO", class: 'form-btn' %>
     <% end %>
   </div>
