@@ -6,11 +6,11 @@
       <%= image_tag 'lego-game.jpg', class: "show-image" %>
     <% end %>
 
-        <div class="details-show-text w-100 p-3">
+        <div class="details-show-text w-100 p-4">
             <h5><%= @lego.name %></h5>
-            <p class="pr-5">pieces: <%= @lego.pieces %></p>
+            <p class="pr-5">Number of pieces: <strong><%= @lego.pieces %></strong></p>
             <p class="description-show"><%= @lego.description %></p>
-            <h5 class="text-right pr-3 text-danger">€ <%= number_with_precision(@lego.price, precision: 2) %></h5>
+            <h5 class="text-right pr-3 text-danger">€ <%= number_with_precision(@lego.price, precision: 2) %> per day</h5>
 
         </div>
     </div>

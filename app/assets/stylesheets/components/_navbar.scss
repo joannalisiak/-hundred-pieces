@@ -1,5 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
+  align-items: center;
   background: white;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
 }
@@ -12,11 +13,18 @@
 .logo-nav {
   font-family: $headers-font;
   color: $red;
+  // background: -webkit-linear-gradient(45deg, $red, $yellow);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
   font-size: 900;
+  font-weight: bolder;
   text-decoration: none;
   &:hover {
     text-decoration: none;
     color: $red;
+    // background: -webkit-linear-gradient(45deg, $yellow, $red);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
   }
 }
 

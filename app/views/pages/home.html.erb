@@ -1,12 +1,22 @@
 
 <div class="container mt-5">
   <div class="row banner-row d-flex flex-row align-items-center justify-content-center">
-    <div class="col-lg-5 col-md-5 col-sm-12">
-      <%= image_tag "lego-banner.jpg", class: 'w-100' %>
+      <div class="col-lg-5 col-md-5 col-sm-12">
+          <%= image_tag "lego-banner.jpg", class: 'w-100' %>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-12 banner-text">
+          <h1>100 PIECES</h1>
+          <h1>100% fun</h1>
+          <p class="pr-4">Do you love LEGO? Join 100 PIECES, exchange LEGO sets with other builders and have unlimitied fun!</p>
+          <button class="btn btn-danger">Get started</button>
+          <%= link_to legos_path do %>
+          <button type="button" class="btn btn-outline-danger ml-2">Browse LEGO</button>
+          <% end %>
+      </div>
     </div>
     <div class="col-lg-7 col-md-7 col-sm-12 banner-text">
       <h1>100 PIECES</h1>
-      <H1>100% fun</H1>
+      <h1>100% fun</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat in provident odit quidem facere
       quibusdam eveniet corrupti ullam veritatis?</p>
       <%= link_to  new_user_registration_path, class: "text-decoration-none" do %>
@@ -22,19 +32,24 @@
 
 
 <div class="container how-it-works my-5">
-  <h3 class="mb-4">HOW IT WORKS</h3>
-  <div class="row d-flex flex-row justify-content-center">
-    <div class="col-md-5 col-lg-3 col-sm-12 m-1 card p-3 rounded justify-content-center">
-      <h5 class="p-3">Choose a Lego</h5>
-      <%= image_tag "choice.svg", class: 'images-card' %>
-      <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.voluptates uidem maiores assumenda
-      aut velit.</p>
-    </div>
-    <div class="col-md-5 col-lg-3 col-sm-12 m-1 card p-3 rounded justify-content-center">
-      <h5 class="p-3">Make a booking</h5>
-      <%= image_tag "booking.svg", class: 'images-card' %>
-      <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.voluptates uidem maiores assumenda
-      aut velit.</p>
+    <h3 class="mb-4">HOW IT WORKS</h3>
+    <div class="row d-flex flex-row justify-content-center">
+        <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
+            <h5 class="p-3">Choose your LEGO</h5>
+            <%= image_tag "choice.svg", class: 'images-card' %>
+            <p class="p-3">Are you looking for a new challenge? Browse all LEGO sets available near you.</p>
+        </div>
+        <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
+            <h5 class="p-3">Make a booking</h5>
+            <%= image_tag "booking.svg", class: 'images-card' %>
+            <p class="p-3">Have you found the LEGO set you like? Make a booking with the owner.</p>
+        </div>
+        <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
+            <h5 class="p-3">Build it!</h5>
+            <%= image_tag "build.svg", class: 'images-card' %>
+            <p class="p-3">Now pick up your LEGO set and get down to putting those bricks together!</p>
+        </div>
+
     </div>
     <div class="col-md-5 col-lg-3 col-sm-12 m-1 card p-3 rounded justify-content-center">
       <h5 class="p-3">Build it!</h5>
@@ -42,18 +57,5 @@
       <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.voluptates uidem maiores assumenda
       aut velit.</p>
     </div>
-  </div>
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
