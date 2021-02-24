@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     # DOES THIS REFER ANYHOW TO AUTHORIZATION?
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:index, :show]
     before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
