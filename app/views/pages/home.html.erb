@@ -1,6 +1,6 @@
 
 <div class="container mt-5">
-  <div class="row banner-row d-flex flex-row align-items-center justify-content-center">
+  <div class="row banner-row align-items-center justify-content-center">
     <div class="col-lg-5 col-md-5 col-sm-12">
         <%= image_tag "lego-banner.jpg", class: 'w-100' %>
     </div>
@@ -9,45 +9,58 @@
         <h1>100% fun</h1>
         <p class="">Do you love LEGO? Join 100 PIECES, exchange LEGO sets with other builders and have unlimitied fun!</p>
         <%= link_to "Get started", new_user_registration_path, class: "btn btn-danger" %>
-        <div class="search-bar mt-4">
+    </div>
+  </div>
+</div>
+
+<div class="container search-bar">
+    <div class="row justify-content-center">
+        <div class="col-12">
             <%= form_tag legos_path, method: :get do %>
                 <div class="d-flex">
-                    <%= text_field_tag :query,
-                        params[:query],
-                        class: "form-control",
-                        placeholder: "Find LEGO"
-                    %>
-                    <%= submit_tag "Search", class: "btn btn-outline-danger" %>
+                    <div class="form-group">
+                        <label for="lego-input">LEGO</label>
+                        <%= text_field_tag :lego_query,
+                            params[:lego_query],
+                            class: "form-control",
+                            id: "lego-input",
+                            placeholder: "What?"
+                        %>
+                    </div>
+                        <div class="form-group ml-2">
+                        <label for="location-input">Location</label>
+                        <%= text_field_tag :location_query,
+                            params[:location_query],
+                            class: "form-control",
+                            id: "location-input",
+                            placeholder: "Where?"
+                        %> 
+                    </div>
+                    <%= submit_tag "Search", class: "btn btn-outline-danger ml-2" %>
                 </div>
             <% end %>
         </div>
     </div>
-    </div>
-    
-  </div>
 </div>
-
-
-
+ 
 <div class="container how-it-works my-5">
     <h3 class="mb-4">HOW IT WORKS</h3>
-    <div class="row d-flex flex-row justify-content-center">
-        <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
+    <div class="row justify-content-space-between">
+        <div class="col-sm-12 col-md-6 col-lg-3 card p-3 rounded">
             <h5 class="p-3">Choose your LEGO</h5>
             <%= image_tag "choice.svg", class: 'images-card' %>
             <p class="p-3">Are you looking for a new challenge? Browse all LEGO sets available near you.</p>
         </div>
-        <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-3 card p-3 rounded">
             <h5 class="p-3">Make a booking</h5>
             <%= image_tag "booking.svg", class: 'images-card' %>
             <p class="p-3">Have you found the LEGO set you like? Make a booking with the owner.</p>
         </div>
-        <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-3 card p-3 rounded">
             <h5 class="p-3">Build it!</h5>
             <%= image_tag "build.svg", class: 'images-card' %>
             <p class="p-3">Now pick up your LEGO set and get down to putting those bricks together!</p>
         </div>
-
-   
+ 
   </div>
 </div>

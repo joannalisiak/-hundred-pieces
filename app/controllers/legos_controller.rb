@@ -4,14 +4,26 @@ class LegosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      sql_query = " \ 
-        legos.name @@ :query \ 
-        OR legos.description @@ :query \
-        "
+    if params[:lego_query].present?
+      if params[:location_query].present?
+        @legos = policy_scope(Lego).order(created_at: :desc)
+        @legos.search_by_name_and_description(params[:lego_query]).search_by_location(params[:location_query])
+      else
+        @legos = policy_scope(Lego).order(created_at: :desc)
+        @legos.search_by_name_and_description(params[:lego_query])
+      end
+    # # where do I implement filering in the controller? where do I display it in the view?
+    # elsif
+    #   # does it have to be here? what does it do?
+    #   @legos = Lego.where(nil)
+    #   filtering_params(params).each do |key, value|
+    #     # what is a public_send? where is it defined?
+    #     @legos = @legos.public_send("filer_by_#{key}", value) if value.present?
+    #   end
     else
       @legos = policy_scope(Lego).order(created_at: :desc)
     end
+
     @markers = @legos.geocoded.map do |lego|
       {
         lat: lego.latitude,
@@ -64,5 +76,9 @@ class LegosController < ApplicationController
 
   def lego_params
     params.require(:lego).permit(:name, :price, :pieces, :description, :address, :photo)
+  end
+
+  def filtering_params(params)
+    params.slice(:pieces, :price)
   end
 end
