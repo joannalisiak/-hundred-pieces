@@ -40,6 +40,14 @@
                 </div>
             <% end %>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <%= form_tag (controller: :collectives, action: :set_status_filter, method: :post) do %>
+                    <%= select_tag(:session_status_filter, options_for_select(@your_list_of_options_for_the_filter)) %>
+                    <%= submit_tag "Set filter" %>
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>
  
