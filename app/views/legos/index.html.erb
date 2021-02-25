@@ -1,21 +1,57 @@
 <section id="home">
   <div class="container p-2">
+    <div class="search-bar mt-5">
+          
+      <%= form_tag legos_path, method: :get, class: "w-100 d-flex form-flex-end" do %>
+          
+        <div class="form-group form-flex-1 mb-0 mr-2">
+          <label for="lego-input">LEGO</label>
+          <%= text_field_tag :lego_query,
+            params[:lego_query],
+            class: "form-control",
+            id: "lego-input",
+            placeholder: "What?"
+          %>
+        </div>
+
+        <div class="form-group form-flex-1 mb-0 mr-2">
+          <label for="lego-input">Min Pieces</label>
+          <%= text_field_tag :min_pieces,
+            params[:min_pieces],
+            class: "form-control",
+            id: "lego-input",
+            placeholder: "What?"
+          %>
+        </div>
+
+        <div class="form-group form-flex-1 mb-0 mr-2">
+          <label for="lego-input">Max Pieces</label>
+          <%= text_field_tag :max_pieces,
+            params[:max_pieces],
+            class: "form-control",
+            id: "lego-input",
+            placeholder: "What?"
+          %>
+        </div>
+
+        <div class="form-group form-flex-1 mb-0 mr-2">
+          <label for="location-input">Location</label>
+          <%= text_field_tag :location_query,
+            params[:location_query],
+            class: "form-control",
+            id: "location-input",
+            placeholder: "Where?"
+          %> 
+        </div>
+
+        <%= submit_tag "Search", class: "btn btn-outline-danger form-flex-1" %>
+
+      <% end %>
+    </div>
     <div class="row">
       <div class="col-6">
-        <%= link_to 'Go back', root_path, class: "btn btn-light mt-4"  %>
-        <h2 class="mb-4 mt-2">LEGO sets near you</h2>
-        <div class="search-bar mb-4">
-          <%= form_tag legos_path, method: :get do %>
-            <div class="d-flex">
-                <%= text_field_tag :query,
-                    params[:query],
-                    class: "form-control",
-                    placeholder: "Find LEGO"
-                %>
-                <%= submit_tag "Search", class: "btn btn-outline-danger ml-2" %>
-            </div>
-          <% end %>
-        </div>
+        <h2 class="mb-4 mt-5">LEGO sets near you</h2>
+
         <% @legos.each do |lego| %>
           <%= link_to lego_path(lego) do %>
             <div class="card-product">
