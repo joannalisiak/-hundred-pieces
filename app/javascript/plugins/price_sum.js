@@ -11,9 +11,11 @@ const initPriceSum = () => {
     let date2 = new Date(endDateElement.value);
     let diffTime = Math.abs(date2 - date1);
     let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    let kaas = (diffDays) * price
-    priceSumElement.innerHTML = "Total: €" + kaas
-
+    if (diffDays) {
+      priceSumElement.innerHTML = "Total: €" + parseFloat(diffDays * price)
+    } else {
+      priceSumElement.innerHTML = "Total: €" + parseFloat(price)
+    }
   }
 }
 
