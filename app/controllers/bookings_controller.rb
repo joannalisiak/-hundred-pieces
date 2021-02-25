@@ -22,10 +22,13 @@ class BookingsController < ApplicationController
     end
 
     def edit
+      respond_to do |format|
+        format.js
+      end
     end
 
     def update
-      @booking.update(cocktail_params)
+      @booking.update(booking_params)
        redirect_to bookings_path
     end
 
