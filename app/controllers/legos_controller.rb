@@ -4,7 +4,14 @@ class LegosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @legos = policy_scope(Lego).order(created_at: :desc)
+    if params[:query].present?
+      sql_query = " \ 
+        legos.name @@ :query \ 
+        OR legos.description @@ :query \
+        "
+    else
+      @legos = policy_scope(Lego).order(created_at: :desc)
+    end
     @markers = @legos.geocoded.map do |lego|
       {
         lat: lego.latitude,
