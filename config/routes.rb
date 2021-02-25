@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :legos do
     resources :bookings, only: %i[new create]
   end
-    resources :bookings, only: %i[show index destroy]
+    resources :bookings, only: %i[show edit update index destroy]
 end
