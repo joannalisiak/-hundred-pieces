@@ -18,6 +18,10 @@ class LegosController < ApplicationController
       @legos = @legos.filter_by_pieces(params[:min_pieces], params[:max_pieces])
     end
 
+    if params[:min_price].present? || params[:max_price].present?
+      @legos = @legos.filter_by_price(params[:min_price], params[:max_price])
+    end
+
     @markers = @legos.geocoded.map do |lego|
       {
         lat: lego.latitude,

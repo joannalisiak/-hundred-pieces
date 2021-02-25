@@ -13,6 +13,8 @@ class Lego < ApplicationRecord
 
   scope :filter_by_pieces, -> (min, max) { where('pieces > ? AND pieces < ?', min, max) }
 
+  scope :filter_by_price, -> (min, max) { where('price > ? AND price < ?', min, max) }
+
   include PgSearch::Model
   pg_search_scope :search_by_name_and_description,
     against: {

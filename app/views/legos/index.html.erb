@@ -10,27 +10,48 @@
             params[:lego_query],
             class: "form-control",
             id: "lego-input",
-            placeholder: "What?"
+            placeholder: "LEGO"
           %>
         </div>
 
         <div class="form-group form-flex-1 mb-0 mr-2">
-          <label for="lego-input">Min Pieces</label>
+          <label for="lego-input">Min pieces no.</label>
           <%= text_field_tag :min_pieces,
             params[:min_pieces],
             class: "form-control",
             id: "lego-input",
-            placeholder: "What?"
+            placeholder: "Min pieces no."
           %>
         </div>
 
         <div class="form-group form-flex-1 mb-0 mr-2">
-          <label for="lego-input">Max Pieces</label>
+          <label for="lego-input">Max pieces no.</label>
           <%= text_field_tag :max_pieces,
             params[:max_pieces],
             class: "form-control",
             id: "lego-input",
-            placeholder: "What?"
+            placeholder: "Max pieces no."
+          %>
+        </div>
+
+        
+        <div class="form-group form-flex-1 mb-0 mr-2">
+          <label for="lego-input">Min price</label>
+          <%= text_field_tag :min_price,
+            params[:min_price],
+            class: "form-control",
+            id: "lego-input",
+            placeholder: "Min price"
+          %>
+        </div>
+
+        <div class="form-group form-flex-1 mb-0 mr-2">
+          <label for="lego-input">Max price</label>
+          <%= text_field_tag :max_price,
+            params[:max_price],
+            class: "form-control",
+            id: "lego-input",
+            placeholder: "Max price"
           %>
         </div>
 
@@ -40,11 +61,13 @@
             params[:location_query],
             class: "form-control",
             id: "location-input",
-            placeholder: "Where?"
+            placeholder: "Location"
           %> 
         </div>
 
-        <%= submit_tag "Search", class: "btn btn-outline-danger form-flex-1" %>
+        <%= button_tag type: 'submit', class: "btn btn-outline-danger" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
 
       <% end %>
     </div>
