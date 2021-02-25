@@ -26,6 +26,11 @@ require("channels")
 // External imports
 import "bootstrap";
 
+import {jQuery as $} from 'jquery';
+// export for others scripts to use
+global.$ = $;
+global.jQuery = jQuery;
+
 import { initMapbox } from '../plugins/init_mapbox';
 import { effect } from '../plugins/file'
 // Internal imports, e.g:

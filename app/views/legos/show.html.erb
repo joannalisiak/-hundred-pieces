@@ -29,8 +29,11 @@
               </div>
             </div>
             <hr>
+            <div>
             <p><%= image_tag 'lego.png', class: "lego-icon" %> <strong><%= @lego.pieces %></strong></p>
             <p><i class="fas fa-map-marker-alt"></i> <strong><%= @lego.address %></strong></p>
+            <p><i class="fas fa-euro-sign"></i> <strong><%= number_with_precision(@lego.price, precision: 2) %> per day</strong></p>
+            </div>
             <p><%= @lego.description %></p>
           </div>
         </div>
@@ -42,11 +45,15 @@
             <%= f.submit "book now", class: "btn btn-danger w-100" %>
             <% end %>
           </div>
-          <div class="details-show-price">
-            <h5 class="text-right text-danger">€ <%= number_with_precision(@lego.price, precision: 2) %> per day</h5>
-          </div>
         </div>
       </div>
     </div>
-
     <div>
+  </div>
+</div>
+</div>
+<div class="text-center mb-4">
+      <%= link_to   legos_path, class: 'btn btn-light rounded mr-1' do %>
+      <i class="fas fa-undo-alt mt-2 ml-2"></i> Back to LEGO
+    <% end %>
+</div>
