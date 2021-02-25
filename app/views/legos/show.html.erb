@@ -43,7 +43,7 @@
             <% end %>
           </div>
           <div class="details-show-price">
-            <h5 class="text-right text-danger">€ <%= number_with_precision(@lego.price, precision: 2) %> per day</h5>
+            <h5 class="text-right text-danger" id="price-sum" data-price="<%= @lego.price %>">€ <%= number_with_precision(@lego.price, precision: 2) %> per day</h5>
           </div>
         </div>
       </div>

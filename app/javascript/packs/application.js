@@ -28,11 +28,13 @@ import "bootstrap";
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { effect } from '../plugins/file'
+import { initPriceSum } from '../plugins/price_sum'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   effect();
+  initPriceSum();
 });
 
 
