@@ -22,6 +22,7 @@ class LegosController < ApplicationController
 
   def show
     authorize @lego
+    @booking = Booking.new
   end
 
   def new
