@@ -14,60 +14,60 @@
 </div>
 
 <div class="container search-bar">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <%= form_tag legos_path, method: :get do %>
-                <div class="d-flex">
-                    <div class="form-group">
-                        <label for="lego-input">LEGO</label>
-                        <%= text_field_tag :lego_query,
-                            params[:lego_query],
-                            class: "form-control",
-                            id: "lego-input",
-                            placeholder: "What?"
-                        %>
-                    </div>
-                        <div class="form-group ml-2">
-                        <label for="location-input">Location</label>
-                        <%= text_field_tag :location_query,
-                            params[:location_query],
-                            class: "form-control",
-                            id: "location-input",
-                            placeholder: "Where?"
-                        %> 
-                    </div>
-                    <%= submit_tag "Search", class: "btn btn-outline-danger ml-2" %>
-                </div>
-            <% end %>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <%= form_tag (controller: :collectives, action: :set_status_filter, method: :post) do %>
-                    <%= select_tag(:session_status_filter, options_for_select(@your_list_of_options_for_the_filter)) %>
-                    <%= submit_tag "Set filter" %>
-                <% end %>
+    <div class="row justify-content-start px-5">
+        
+        <%= form_tag legos_path, method: :get, class: "w-100 d-flex form-flex-end" do %>
+            
+            <div class="form-group form-flex-2 mb-0 mr-2">
+                <label for="lego-input">LEGO</label>
+                <%= text_field_tag :lego_query,
+                    params[:lego_query],
+                    class: "form-control",
+                    id: "lego-input",
+                    placeholder: "What do you want to build?"
+                %>
             </div>
-        </div>
+
+            <div class="form-group form-flex-2 mb-0 mr-2">
+                <label for="location-input">Location</label>
+                <%= text_field_tag :location_query,
+                    params[:location_query],
+                    class: "form-control",
+                    id: "location-input",
+                    placeholder: "Where are you looking?"
+                %> 
+            </div>
+
+            <%= button_tag type: 'submit', class: "btn btn-outline-danger" do %>
+                <i class="fas fa-search"></i>
+            <% end %>
+        <% end %>
     </div>
 </div>
  
-<div class="container how-it-works my-5">
-    <h3 class="mb-4">HOW IT WORKS</h3>
-    <div class="row justify-content-space-between">
-        <div class="col-sm-12 col-md-6 col-lg-3 card p-3 rounded">
-            <h5 class="p-3">Choose your LEGO</h5>
-            <%= image_tag "choice.svg", class: 'images-card' %>
-            <p class="p-3">Are you looking for a new challenge? Browse all LEGO sets available near you.</p>
+<div class="container how-it-works mb-4">
+    <h3 class="mb-3">HOW IT WORKS</h3>
+    <div class="row justify-content-between align-items-stretch px-5 py-4">
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0">
+            <div class="card roudned p-4">
+                <h5 class="mt-2">Choose your LEGO</h5>
+                <%= image_tag "choice.svg", class: 'images-card' %>
+                <p class="mt-4">Are you looking for a new challenge? Browse all LEGO sets near you.</p>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 card p-3 rounded">
-            <h5 class="p-3">Make a booking</h5>
-            <%= image_tag "booking.svg", class: 'images-card' %>
-            <p class="p-3">Have you found the LEGO set you like? Make a booking with the owner.</p>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0">
+            <div class="card rounded p-4">
+                <h5 class="mt-2">Make a booking</h5>
+                <%= image_tag "booking.svg", class: 'images-card' %>
+                <p class="mt-4">Have you found the LEGO set you like? Make a booking with the owner.</p>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 card p-3 rounded">
-            <h5 class="p-3">Build it!</h5>
-            <%= image_tag "build.svg", class: 'images-card' %>
-            <p class="p-3">Now pick up your LEGO set and get down to putting those bricks together!</p>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0">
+            <div class="card rounded p-4">
+                <h5 class="mt-2">Build it!</h5>
+                <%= image_tag "build.svg", class: 'images-card' %>
+                <p class="mt-4">Now pick up your LEGO set and get down to putting those bricks together!</p>
+            </div>
         </div>
  
   </div>

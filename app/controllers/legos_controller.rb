@@ -4,24 +4,22 @@ class LegosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    
+    @legos = policy_scope(Lego).order(created_at: :desc)
     if params[:lego_query].present?
-      if params[:location_query].present?
-        @legos = policy_scope(Lego).order(created_at: :desc)
-        @legos.search_by_name_and_description(params[:lego_query]).search_by_location(params[:location_query])
-      else
-        @legos = policy_scope(Lego).order(created_at: :desc)
-        @legos.search_by_name_and_description(params[:lego_query])
-      end
-    # # where do I implement filering in the controller? where do I display it in the view?
-    # elsif
-    #   # does it have to be here? what does it do?
-    #   @legos = Lego.where(nil)
-    #   filtering_params(params).each do |key, value|
-    #     # what is a public_send? where is it defined?
-    #     @legos = @legos.public_send("filer_by_#{key}", value) if value.present?
-    #   end
-    else
-      @legos = policy_scope(Lego).order(created_at: :desc)
+      @legos = @legos.search_by_name_and_description(params[:lego_query])
+    end
+    
+    if params[:location_query].present?
+      @legos = @legos.near(params[:location_query], 10)
+    end
+
+    if params[:min_pieces].present? || params[:max_pieces].present?
+      @legos = @legos.filter_by_pieces(params[:min_pieces], params[:max_pieces])
+    end
+
+    if params[:min_price].present? || params[:max_price].present?
+      @legos = @legos.filter_by_price(params[:min_price], params[:max_price])
     end
 
     @markers = @legos.geocoded.map do |lego|
@@ -34,6 +32,7 @@ class LegosController < ApplicationController
 
   def show
     authorize @lego
+    @booking = Booking.new
   end
 
   def new

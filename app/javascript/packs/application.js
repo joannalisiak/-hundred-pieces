@@ -7,6 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+require("bootstrap")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -23,15 +26,18 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap";
+
+
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { effect } from '../plugins/file'
+import { initPriceSum } from '../plugins/price_sum'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   effect();
+  initPriceSum();
 });
 
 

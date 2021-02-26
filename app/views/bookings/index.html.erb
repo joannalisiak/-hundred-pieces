@@ -1,0 +1,62 @@
+<div class="container mb-5">
+    <%= link_to   legos_path, class: 'btn btn-light rounded mb-4' do %>
+    <i class="fas fa-undo-alt"></i> Back to LEGO
+    <% end %>
+    <h3>My bookings</h3>
+    <p>Here you can see all your coming booking!</p>
+    <% @user_bookings.each do |booking| %>
+    <div class="card-upstanding-booking w-100">
+        <% if booking.lego.photo.attached? %>
+        <%= cl_image_tag booking.lego.photo.key, crop: :fill %>
+        <% else %>
+        <%= image_tag 'heads.jpg' %>
+        <% end %>
+
+        <div class="card-booking-infos px-3 w-100">
+            <div class="d-flex flex-row justify-content-between align-items-center mb-3">
+                <h4 class="pt-3 text-danger">Booking of <%= booking.lego.name %></h4>
+                <div>
+
+                    <%= link_to edit_booking_path(booking), remote: true do %>
+                      <i class="fas fa-pencil-alt mr-3"></i>
+                    <% end %>
+
+                    <%= link_to booking_path(booking), method: 'delete', data: {confirm: "Are you sure?"} do %>
+                    <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <div>
+                    <p>Pick up date: <strong><%= booking.transform_start_date %></strong></p>
+                    <p>Restitution date: <strong><%= booking.transform_end_date %></strong></p>
+                </div>
+                <div>
+                    <p>Price per day: € <%= number_with_precision(booking.lego.price, precision: 2) %></p>
+                    <h6>Total price: <strong class="text-danger">
+                            €
+                            <%= number_with_precision((booking.day_of_rent * booking.lego.price), precision: 2) %></strong>
+                    </h6>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
