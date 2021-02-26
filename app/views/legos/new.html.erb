@@ -1,13 +1,25 @@
 <div class="container my-5">
-  <div class="form-new">
-    <p class="form-header">Add your LEGO offer</p>
-    <%= simple_form_for @lego do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :pieces %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Add your LEGO", class: 'form-btn' %>
-    <% end %>
+  <div class="row align-items-center">
+    <div class="col-8">
+      <div class="form-new">
+        <h2 class="text-center pt-4">Add your LEGO offer</h2>
+        <%= simple_form_for @lego do |f| %>
+          <%= f.input :name %>
+          <%= f.input :price %>
+          <%= f.input :pieces %>
+          <%= f.input :description %>
+          <%= f.input :address %>
+          <%= f.input :photo, as: :file %>
+          <%= button_tag type: 'submit', class: "btn btn-danger mt-4 mb-4" do %>
+            <i class="fas fa-plus"></i> Add
+          <% end %>
+          <%= link_to "Cancel", legos_path, class: "btn btn-outline-danger ml-4 mt-4 mb-4" %>
+        <% end %>
+      </div>
+
+    </div>
+      <div class="col-4">
+        <%= image_tag "lego-banner.jpg", class: "form-img"%>
+      </div>
   </div>
+
