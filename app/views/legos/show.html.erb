@@ -38,11 +38,11 @@
         </div>
         <div class="col-6">
           <div class="card-book-lego mt-4 py-5">
-            <h5 class="text-center pb-3"><strong>Interested in this LEGO? Book here!</strong></h5>
+            <h5 class="text-center pb-3"><strong>Like LEGO? Book here!</strong></h5>
             <%= simple_form_for [ @lego, @booking ] do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true %>
-            <%= f.submit "book now", class: "btn btn-danger w-100" %>
+            <%= f.submit "Book now", class: "btn btn-danger w-100" %>
             <% end %>
           </div>
 
@@ -55,7 +55,7 @@
 
       <div class="py-4">
         <div>
-          <h6><strong>See here what our clients think about <%= @lego.name %></strong></h6>
+          <h6><strong>See here what other builders think about <%= @lego.name %></strong></h6>
           <hr>
           <div>
 
@@ -66,7 +66,7 @@
           <div>
             <% if @lego.already_booked?(current_user) %>
             <div class="d-flex flex-column">
-              <h6>Please, feel free to leave your review here!</h6>
+              <h6>Have you booked this LEGO? Leave your review here</h6>
               <div>
               <%= simple_form_for [ current_user.bookings.last, @review] do |f| %>
                 <%= f.input :content %>
