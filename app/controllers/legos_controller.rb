@@ -15,11 +15,15 @@ class LegosController < ApplicationController
     end
 
     if params[:min_pieces].present? || params[:max_pieces].present?
-      @legos = @legos.filter_by_pieces(params[:min_pieces], params[:max_pieces])
+      min_pieces = params[:min_pieces].present? ? params[:min_pieces] : 0
+      max_pieces = params[:max_pieces].present? ? params[:max_pieces] : 100000
+      @legos = @legos.filter_by_pieces(min_pieces, max_pieces)
     end
 
     if params[:min_price].present? || params[:max_price].present?
-      @legos = @legos.filter_by_price(params[:min_price], params[:max_price])
+      min_price = params[:min_price].present? ? params[:min_price] : 0
+      max_price = params[:max_price].present? ? params[:max_price] : 100000
+      @legos = @legos.filter_by_price(min_price, max_price)
     end
 
     @markers = @legos.geocoded.map do |lego|

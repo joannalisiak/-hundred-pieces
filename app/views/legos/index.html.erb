@@ -1,6 +1,6 @@
 <section id="home">
   <div class="container p-2">
-    <div class="search-bar mt-5">
+    <div class="search-bar mt-2">
           
       <%= form_tag legos_path, method: :get, class: "w-100 d-flex form-flex-end" do %>
           
@@ -72,7 +72,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <h2 class="mb-4 mt-5">LEGO sets near you</h2>
+        <h2 class="mb-4 mt-4">LEGO sets near you</h2>
 
         <% @legos.each do |lego| %>
           <%= link_to lego_path(lego) do %>
@@ -94,7 +94,7 @@
           
       </div>
 
-      <div class="col-6">
+      <div class="col-6 mt-4">
         <div
           id="map"
           style="width: 100%; height: 100vh;"
