@@ -44,7 +44,7 @@
             <%= f.input :end_date, as: :date, html5: true %>
 
           <div class="details-show-price py-2 pr-1">
-            <h6 class="text-right" id="price-sum" data-price="<%= @lego.price %>">Total Price: € <%= number_with_precision(@lego.price, precision: 0) %></h6>
+            <h6 class="text-right" id="price-sum" data-price="<%= @lego.price %>">Total: €  <%= number_with_precision(@lego.price, precision: 0) %></h6>
           </div>
           <%= f.submit "Book now", class: "btn btn-danger w-100" %>
 
