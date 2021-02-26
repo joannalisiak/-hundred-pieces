@@ -2,17 +2,17 @@ class ReviewsController < ApplicationController
     def new
         @review = Review.new
         @booking = Booking.find(params[:booking_id])
+
     end
 
     def create
-        @review = Review.new(review_params)
         @booking = Booking.find(params[:booking_id])
+        @review = Review.new(review_params)
         @review.booking = @booking
-
         if @review.save
           redirect_to lego_path(@booking.lego)
         else
-          render "new"
+          render "legos/show"
         end
     end
 
@@ -26,6 +26,6 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:content, :rating, :booking_id)
+        params.require(:review).permit(:content, :rating, :booking_id, :lego_id)
     end
 end

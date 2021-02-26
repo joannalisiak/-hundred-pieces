@@ -4,7 +4,6 @@ class LegosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    
     @legos = policy_scope(Lego).order(created_at: :desc)
     if params[:lego_query].present?
       @legos = @legos.search_by_name_and_description(params[:lego_query])
@@ -37,6 +36,12 @@ class LegosController < ApplicationController
   def show
     authorize @lego
     @booking = Booking.new
+    @review = Review.new
+    # SELECT *
+    # FROM reviews
+    # JOIN ON reviews.booking_id = booking.id
+    # WHERE bookings.lego_id = @lego.id
+    @reviews = Review.includes(:booking).where(bookings: { lego_id: @lego.id })
   end
 
   def new
