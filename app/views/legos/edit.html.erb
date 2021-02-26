@@ -1,8 +1,7 @@
-<div class="container my-5">
 
-  <div class="container my-5">
-  <div class="row align-items-center">
-    <div class="col-8">
+ <div class="container my-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-7">
       <div class="form-new">
         <p class="form-header">Edit your LEGO offer</p>
         <%= simple_form_for @lego do |f| %>
@@ -13,14 +12,14 @@
           <%= f.input :address %>
           <%= f.input :photo, as: :file %>
           <%= button_tag type: 'submit', class: "btn btn-danger mt-4 mb-4" do %>
-            <i class="fas fa-pencil-alt"></i> Save
+            <i class="fas fa-pencil-alt pencil-edit"></i> Save
           <% end %>
           <%= link_to "Cancel", legos_path, class: "btn btn-outline-danger ml-4 mt-4 mb-4" %>
         <% end %>
       </div>
 
     </div>
-      <div class="col-4">
+      <div class="col-5">
         <%= image_tag "lego-banner.jpg", class: "form-img"%>
       </div>
   </div>
