@@ -1,107 +1,107 @@
 <section id="home">
   <div class="container p-2">
     <div class="search-bar mt-2">
-          
+
       <%= form_tag legos_path, method: :get, class: "w-100 d-flex form-flex-end" do %>
-          
-        <div class="form-group form-flex-1 mb-0">
-          <%# <label for="lego-input">LEGO</label> %>
-          <%= text_field_tag :lego_query,
-            params[:lego_query],
-            class: "form-control first",
-            id: "lego-input",
-            placeholder: "LEGO"
+
+      <div class="form-group form-flex-1 mb-0">
+        <%# <label for="lego-input">LEGO</label> %>
+        <%= text_field_tag :lego_query,
+        params[:lego_query],
+        class: "form-control first",
+          id: "lego-input",
+          placeholder: "LEGO"
           %>
         </div>
 
         <div class="form-group form-flex-1 mb-0">
           <%# <label for="lego-input">Min pieces</label> %>
           <%= text_field_tag :min_pieces,
-            params[:min_pieces],
-            class: "form-control middle",
+          params[:min_pieces],
+          class: "form-control middle",
             id: "lego-input",
             placeholder: "Min pieces"
-          %>
-        </div>
+            %>
+          </div>
 
-        <div class="form-group form-flex-1 mb-0">
-          <%# <label for="lego-input">Max pieces</label> %>
-          <%= text_field_tag :max_pieces,
+          <div class="form-group form-flex-1 mb-0">
+            <%# <label for="lego-input">Max pieces</label> %>
+            <%= text_field_tag :max_pieces,
             params[:max_pieces],
             class: "form-control middle",
-            id: "lego-input",
-            placeholder: "Max pieces"
-          %>
-        </div>
-        
-        <div class="form-group form-flex-1 mb-0">
-          <%# <label for="lego-input">Min price</label> %>
-          <%= text_field_tag :min_price,
-            params[:min_price],
-            class: "form-control middle",
-            id: "lego-input",
-            placeholder: "Min price"
-          %>
-        </div>
-
-        <div class="form-group form-flex-1 mb-0">
-          <%# <label for="lego-input">Max price</label> %>
-          <%= text_field_tag :max_price,
-            params[:max_price],
-            class: "form-control middle",
-            id: "lego-input",
-            placeholder: "Max price"
-          %>
-        </div>
-
-        <div class="form-group form-flex-1 mb-0 mr-2">
-          <%# <label for="location-input">Location</label> %>
-          <%= text_field_tag :location_query,
-            params[:location_query],
-            class: "form-control last",
-            id: "location-input",
-            placeholder: "Location"
-          %> 
-        </div>
-
-        <%= button_tag type: 'submit', class: "btn btn-outline-danger" do %>
-          <i class="fas fa-search"></i>
-        <% end %>
-
-      <% end %>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <h2 class="mb-4 mt-4">LEGO sets near you</h2>
-
-        <% @legos.each do |lego| %>
-          <%= link_to lego_path(lego) do %>
-            <div class="card-product">
-              <% if lego.photo.attached? %>
-                <%= cl_image_tag lego.photo.key, crop: :fill %>
-              <% else %>
-                <%= image_tag 'heads.jpg' %>
-              <% end %>
-              <div class="card-product-infos d-flex w-100 justify-content-between">
-              <div>
-                <h2 class="title-card"><%= lego.name %></h2>
-                <p><i class="fas fa-map-marker-alt"></i> <%= lego.address %></p>
-                <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for € <%= number_with_precision(lego.price, precision: 2) %> per day.</p>
-              </div>
-              </div>
+              id: "lego-input",
+              placeholder: "Max pieces"
+              %>
             </div>
-          <% end %>
-        <% end %>
 
-      </div>
+            <div class="form-group form-flex-1 mb-0">
+              <%# <label for="lego-input">Min price</label> %>
+              <%= text_field_tag :min_price,
+              params[:min_price],
+              class: "form-control middle",
+                id: "lego-input",
+                placeholder: "Min price"
+                %>
+              </div>
 
-      <div class="col-6 mt-4">
-        <div
-          id="map"
-          style="width: 100%; height: 100vh;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-        </div>
-      </div>
-    </div>
-</section>
+              <div class="form-group form-flex-1 mb-0">
+                <%# <label for="lego-input">Max price</label> %>
+                <%= text_field_tag :max_price,
+                params[:max_price],
+                class: "form-control middle",
+                  id: "lego-input",
+                  placeholder: "Max price"
+                  %>
+                </div>
+
+                <div class="form-group form-flex-1 mb-0 mr-2">
+                  <%# <label for="location-input">Location</label> %>
+                  <%= text_field_tag :location_query,
+                  params[:location_query],
+                  class: "form-control last",
+                    id: "location-input",
+                    placeholder: "Location"
+                    %>
+                  </div>
+
+                  <%= button_tag type: 'submit', class: "btn btn-outline-danger" do %>
+                  <i class="fas fa-search"></i>
+                  <% end %>
+
+                  <% end %>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <h2 class="mb-4 mt-4">LEGO sets near you</h2>
+
+                    <% @legos.each do |lego| %>
+                    <%= link_to lego_path(lego) do %>
+                    <div class="card-product">
+                      <% if lego.photo.attached? %>
+                      <%= cl_image_tag lego.photo.key, crop: :fill %>
+                      <% else %>
+                      <%= image_tag 'heads.jpg' %>
+                      <% end %>
+                      <div class="card-product-infos d-flex w-100 justify-content-between">
+                        <div>
+                          <h2 class="title-card"><%= lego.name %></h2>
+                          <p><i class="fas fa-map-marker-alt"></i> <%= lego.address %></p>
+                          <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for € <%= number_with_precision(lego.price, precision: 2) %> per day.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <% end %>
+                    <% end %>
+
+                  </div>
+
+                  <div class="col-6 mt-4">
+                    <div
+                    id="map"
+                    style="width: 100%; height: 100vh;"
+                    data-markers="<%= @markers.to_json %>"
+                    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
