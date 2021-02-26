@@ -42,13 +42,13 @@
             <%= simple_form_for [ @lego, @booking ] do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true %>
+          <div class="details-show-price py-2 pr-1">
+            <h6 class="text-right" id="price-sum" data-price="<%= @lego.price %>">Total Price: € <%= number_with_precision(@lego.price, precision: 0) %></h6>
+          </div>
             <%= f.submit "book now", class: "btn btn-danger w-100" %>
             <% end %>
           </div>
 
-          <div class="details-show-price">
-            <h5 class="text-right text-danger" id="price-sum" data-price="<%= @lego.price %>">€ <%= number_with_precision(@lego.price, precision: 0) %></h5>
-          </div>
         </div>
       </div>
 
@@ -57,16 +57,23 @@
         <div>
           <h6><strong>See here what our clients think about <%= @lego.name %></strong></h6>
           <hr>
-          <div>
+          <div class="py-2">
 
           <% @reviews.each do |review| %>
+              <div class="d-flex py-3 justify-content-between border-1">
               <%= review.content %>
+              <div class="d-flex mb-2">
+              <% review.rating.round.times do  %>
+                <i class="fa fa-star pt-2" aria-hidden="true"></i>
+              <% end  %>
+              </div>
+              </div>
           <% end %>
           </div>
-          <div>
+          <div class="py-3">
             <% if @lego.already_booked?(current_user) %>
             <div class="d-flex flex-column">
-              <h6>Please, feel free to leave your review here!</h6>
+              <h6 class="text-danger">Please, feel free to leave your review here!</h6>
               <div>
               <%= simple_form_for [ current_user.bookings.last, @review] do |f| %>
                 <%= f.input :content %>
