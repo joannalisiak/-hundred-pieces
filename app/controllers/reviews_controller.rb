@@ -20,8 +20,8 @@ class ReviewsController < ApplicationController
         @review = Review.find(params[:id])
         @booking = @review.booking
         @review.destroy
-        redirect_to lego_path(@booking.lego))
-        end
+        redirect_to lego_path(@booking.lego)
+    end
 
     private
 
