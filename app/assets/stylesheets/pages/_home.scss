@@ -16,7 +16,7 @@
 }
 
 h1,
-h3 {
+h3, h4 {
     font-weight: 700;
     line-height: 1em;
 }
@@ -39,7 +39,7 @@ h5 {
     align-self: center;
 }
 
-.card {
+.card, .card-booking {
     border: none;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
     transition: 0.3s all;

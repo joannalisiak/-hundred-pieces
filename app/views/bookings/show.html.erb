@@ -1,0 +1,20 @@
+<div class="container mt-4 text-center">
+    <div class="row justify-content-center">
+        <div class="col-6 card-booking p-3">
+            <h4>thank you for booking with us!</h4>
+            Your booking for <strong><%= @booking.lego.name %></strong> has been successfully placed!
+            Don't forget to pick it up <strong><%= @booking.transform_start_date %></strong> at
+            <strong><%= @booking.lego.address %></strong>.
+            <br>
+            The restitution is due the <strong class="text-danger"><%= @booking.transform_end_date %></strong>.
+            <br>
+            <br>
+            <p>The total price for your booking is <strong class="text-danger">
+                    <%= number_with_precision((@booking.day_of_rent * @booking.lego.price), precision: 2) %> €</strong>
+            </p>
+        </div>
+    </div>
+        <%= link_to   legos_path, class: 'btn btn-light rounded mr-1 mt-5' do %>
+      <i class="fas fa-undo-alt"></i> Back to LEGO
+    <% end %>
+</div>

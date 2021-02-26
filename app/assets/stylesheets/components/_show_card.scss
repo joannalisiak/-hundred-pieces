@@ -1,46 +1,81 @@
-.showcard {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    height: 400px;
-    @media screen and (max-width: 1000px) {
-      flex-direction: column;
-    }
-  }
+// .showcard {
+//     display: flex;
+//     flex-direction: row;
+//     position: relative;
+//     height: 400px;
+//     @media screen and (max-width: 1000px) {
+//       flex-direction: column;
+//     }
+//   }
 
-  .show-image {
-    width: 50%;
-    object-fit: cover;
-    @media screen and (max-width: 1000px) {
-      width: 100%;
-    }
-}
-.details-show {
-  display: flex;
-  @media screen and (max-width: 1000px) {
-    width: 100%;
-  }
-}
+//
+// }
+// .details-show {
+//   display: flex;
+//   @media screen and (max-width: 1000px) {
+//     width: 100%;
+//   }
+// }
 .details-show-price {
-  position: absolute;
   bottom: 24px;
   right: 24px;
 }
-.details-show-icons {
-  position: absolute;
-  top: 24px;
-  right: 24px; 
-  i {
-    color: $red;
-    font-size: 20px;
-    &:hover {
-      color: $yellow;
+// .details-show-icons {
+//   position: absolute;
+//   top: 24px;
+//   right: 24px;
+//   i {
+//     color: $red;
+//     font-size: 20px;
+//     &:hover {
+//       color: $yellow;
+//     }
+//   }
+// }
+
+.show-image {
+      width: 100%;
+      object-fit: cover;
+      @media screen and (max-width: 1000px) {
+        width: 100%;
+      }
     }
+
+
+.box-image {
+display: flex;
+justify-content: center;
+  }
+
+.details-legos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.lego-icon {
+  width: 20px;
+  height: auto;
+
+}
+
+.card-book-lego {
+  padding: 20px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.fa-trash-alt, .fa-pencil-alt {
+  color: black;
+  opacity: 0.5;
+  &:hover {
+    opacity: 0.7;
   }
 }
-.description-show {
-  min-height: 150px;
-  @media screen and (max-width: 1000px) {
-    min-height: 0;
-  }
+
+.box {
+  width: 80%;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }

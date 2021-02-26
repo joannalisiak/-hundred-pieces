@@ -1,0 +1,24 @@
+.card-upstanding-booking {
+    min-height: 120px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: 0.3s all;
+    transform: scale(1);
+  }
+
+  .card-upstanding-booking img {
+    height: 100%;
+    max-width: 300px;
+    object-fit: cover;
+  }
+
+
+  .card-upstanding-booking p {
+    font-size: 14px;
+    opacity: .7;
+    line-height: 0.8em;
+  }
+
