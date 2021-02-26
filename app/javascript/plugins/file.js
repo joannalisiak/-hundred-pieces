@@ -1,4 +1,6 @@
 export const effect = () => {
-    // if element exists
-console.log("hello");
+    const heart = document.querySelector("#heart");
+    heart.addEventListener("click", () => {
+    heart.style.color="red";
+    });
 };

@@ -19,21 +19,22 @@
         <% @legos.each do |lego| %>
           <%= link_to lego_path(lego) do %>
             <div class="card-product">
-
               <% if lego.photo.attached? %>
                 <%= cl_image_tag lego.photo.key, crop: :fill %>
               <% else %>
                 <%= image_tag 'heads.jpg' %>
               <% end %>
-
-              <div class="card-product-infos">
+              <div class="card-product-infos d-flex w-100 justify-content-between">
+              <div>
                 <h2 class="title-card"><%= lego.name %></h2>
+                <p><i class="fas fa-map-marker-alt"></i> <%= lego.address %></p>
                 <p>Have fun with <strong><%= lego.pieces %> pieces</strong> for € <%= number_with_precision(lego.price, precision: 2) %> per day.</p>
+              </div>
               </div>
             </div>
           <% end %>
         <% end %>
-          
+
       </div>
 
       <div class="col-6">

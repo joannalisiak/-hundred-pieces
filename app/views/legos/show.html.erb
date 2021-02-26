@@ -21,10 +21,8 @@
                   <%= link_to lego_path(@lego), method: 'delete', data: {confirm: "Are you sure?"} do %>
                   <i class="fas fa-trash-alt"></i>
                   <% end %>
-                <% else %>
-                  <%= link_to "#" do %>
-                  <i class="fas fa-heart"></i>
-                  <% end %>
+                  <% else %>
+                  <i id="heart" class="fas fa-heart mt-4"></i>
                 <% end %>
               </div>
             </div>

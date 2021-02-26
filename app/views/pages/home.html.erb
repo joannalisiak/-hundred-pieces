@@ -1,16 +1,16 @@
-
 <div class="container mt-5">
-  <div class="row banner-row d-flex flex-row align-items-center justify-content-center">
-    <div class="col-lg-5 col-md-5 col-sm-12">
-        <%= image_tag "lego-banner.jpg", class: 'w-100' %>
-    </div>
-    <div class="col-sm-12 col-md-6 banner-text">
-        <h1>100 PIECES</h1>
-        <h1>100% fun</h1>
-        <p class="">Do you love LEGO? Join 100 PIECES, exchange LEGO sets with other builders and have unlimitied fun!</p>
-        <%= link_to "Get started", new_user_registration_path, class: "btn btn-danger" %>
-        <div class="search-bar mt-4">
-            <%= form_tag legos_path, method: :get do %>
+    <div class="row banner-row d-flex flex-row align-items-center justify-content-center">
+        <div class="col-lg-5 col-md-5 col-sm-12">
+            <%= image_tag "lego-banner.jpg", class: 'w-100' %>
+        </div>
+        <div class="col-sm-12 col-md-6 banner-text">
+            <h1>100 PIECES</h1>
+            <h1>100% fun</h1>
+            <p class="">Do you love LEGO? Join 100 PIECES, exchange LEGO sets with other builders and have unlimitied
+                fun!</p>
+            <%= link_to "Get started", new_user_registration_path, class: "btn btn-danger" %>
+            <div class="search-bar mt-4">
+                <%= form_tag legos_path, method: :get do %>
                 <div class="d-flex">
                     <%= text_field_tag :query,
                         params[:query],
@@ -19,17 +19,15 @@
                     %>
                     <%= submit_tag "Search", class: "btn btn-outline-danger" %>
                 </div>
-            <% end %>
+                <% end %>
+            </div>
         </div>
     </div>
-    </div>
-    
-  </div>
+
+</div>
 </div>
 
-
-
-<div class="container how-it-works my-5">
+<div class="container how-it-works my-5 pb-5">
     <h3 class="mb-4">HOW IT WORKS</h3>
     <div class="row d-flex flex-row justify-content-center">
         <div class="col-md-5 col-lg-3 col-sm-12 m-4 card p-3 rounded justify-content-center">
@@ -47,7 +45,54 @@
             <%= image_tag "build.svg", class: 'images-card' %>
             <p class="p-3">Now pick up your LEGO set and get down to putting those bricks together!</p>
         </div>
+    </div>
+</div>
 
-   
-  </div>
+<div class="container text-center my-5 py-5">
+    <h4 class="mb-4">OUR CLIENTS SPEAK</h4>
+    <p>We have been working with clients all around Europe!</p>
+    <div class="d-flex w-100 justify-content-center">
+    <div class="d-flex flex-column">
+        <div class="speech-bubble">
+            <h6><strong>Fantastic experience with my son</strong></h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tempora sit neque nisi debitis, eligendi odio
+                corporis nulla suscipit.</p>
+        </div>
+        <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center mt-4 mb-3">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
+        </div>
+            <h6>Johnny Cooper</h6>
+            <p><small>Amsterdam</small></p>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="speech-bubble">
+            <h6><strong>Amazing to build: Adult & Kids</strong></h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tempora sit neque nisi debitis, eligendi odio
+                corporis nulla suscipit.</p>
+        </div>
+        <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center mt-4 mb-3">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
+        </div>
+            <h6>Johnny Cooper</h6>
+            <p><small>Amsterdam</small></p>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="speech-bubble">
+            <h6><strong>Affordable booking price</strong></h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A tempora sit neque nisi debitis, eligendi odio
+                corporis nulla suscipit.</p>
+        </div>
+        <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center mt-4 mb-3">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar"%>
+        </div>
+            <h6>Johnny Cooper</h6>
+            <p><small>Amsterdam</small></p>
+        </div>
+    </div>
+    </div>
 </div>

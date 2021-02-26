@@ -5,8 +5,8 @@ class LegosController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = " \ 
-        legos.name @@ :query \ 
+      sql_query = " \
+        legos.name @@ :query \
         OR legos.description @@ :query \
         "
     else
@@ -23,6 +23,7 @@ class LegosController < ApplicationController
   def show
     authorize @lego
     @booking = Booking.new
+    # @review = Review.new
   end
 
   def new
