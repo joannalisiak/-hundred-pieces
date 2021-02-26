@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :legos
-  has_many :bookings, through: :legos
+  has_many :bookings
+  has_many :received_bookings, through: :legos, source: :bookings
+
 
   # validates :first_name, presence: true
   # validates :last_name, presence: true

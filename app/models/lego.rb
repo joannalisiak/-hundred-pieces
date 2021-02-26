@@ -10,4 +10,10 @@ class Lego < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def already_booked?(user)
+    self.bookings.any? do |booking|
+      booking.user == user
+    end
+  end
 end

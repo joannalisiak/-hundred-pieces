@@ -1,5 +1,5 @@
 .card-upstanding-booking {
-    min-height: 120px;
+    height: 180px;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     display: flex;
@@ -10,8 +10,8 @@
   }
 
   .card-upstanding-booking img {
-    height: 100%;
     max-width: 300px;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -22,3 +22,12 @@
     line-height: 0.8em;
   }
 
+
+
+.nav-tabs .active {
+color: red !important;
+
+}
+.nav-tabs a {
+color: rgb(59, 59, 59);
+}

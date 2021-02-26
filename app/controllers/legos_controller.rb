@@ -23,7 +23,12 @@ class LegosController < ApplicationController
   def show
     authorize @lego
     @booking = Booking.new
-    # @review = Review.new
+    @review = Review.new
+    # SELECT *
+    # FROM reviews
+    # JOIN ON reviews.booking_id = booking.id
+    # WHERE bookings.lego_id = @lego.id
+    @reviews = Review.includes(:booking).where(bookings: { lego_id: @lego.id })
   end
 
   def new

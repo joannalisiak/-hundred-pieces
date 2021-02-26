@@ -2,8 +2,8 @@ class BookingsController < ApplicationController
 
   before_action :set_booking, only: %i[show edit update destroy]
     def index
-      @user_bookings = current_user.bookings
-      @bookings = Booking.all
+      @user_bookings = current_user.bookings # other user applying for
+      @received_bookings = current_user.received_bookings # my lego application
     end
 
     def create
