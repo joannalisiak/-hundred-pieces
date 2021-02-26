@@ -1,6 +1,8 @@
 class Lego < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
+  # better has_many :bookings, dependent: :nullify
+  # even better: add status column to each tables in db, active by default, when deleting toggling status to inactive
   has_one_attached :photo
 
   validates :name, presence: true
