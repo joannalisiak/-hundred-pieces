@@ -45,6 +45,10 @@
             <%= f.submit "book now", class: "btn btn-danger w-100" %>
             <% end %>
           </div>
+
+          <div class="details-show-price">
+            <h5 class="text-right text-danger" id="price-sum" data-price="<%= @lego.price %>">€ <%= number_with_precision(@lego.price, precision: 0) %></h5>
+          </div>
         </div>
       </div>
 
@@ -76,6 +80,7 @@
         </div>
       </div>
     </div>
+
     <div>
     </div>
   </div>
@@ -85,3 +90,4 @@
   <i class="fas fa-undo-alt mt-2 ml-2"></i> Back to LEGO
   <% end %>
 </div>
+

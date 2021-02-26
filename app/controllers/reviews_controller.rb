@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
         @booking = @review.booking
         @review.destroy
         redirect_to lego_path(@booking.lego)
-        end
+    end
 
     private
 

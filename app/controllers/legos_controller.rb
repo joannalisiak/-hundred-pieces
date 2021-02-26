@@ -4,14 +4,27 @@ class LegosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      sql_query = " \
-        legos.name @@ :query \
-        OR legos.description @@ :query \
-        "
-    else
-      @legos = policy_scope(Lego).order(created_at: :desc)
+    @legos = policy_scope(Lego).order(created_at: :desc)
+    if params[:lego_query].present?
+      @legos = @legos.search_by_name_and_description(params[:lego_query])
     end
+    
+    if params[:location_query].present?
+      @legos = @legos.near(params[:location_query], 10)
+    end
+
+    if params[:min_pieces].present? || params[:max_pieces].present?
+      min_pieces = params[:min_pieces].present? ? params[:min_pieces] : 0
+      max_pieces = params[:max_pieces].present? ? params[:max_pieces] : 100000
+      @legos = @legos.filter_by_pieces(min_pieces, max_pieces)
+    end
+
+    if params[:min_price].present? || params[:max_price].present?
+      min_price = params[:min_price].present? ? params[:min_price] : 0
+      max_price = params[:max_price].present? ? params[:max_price] : 100000
+      @legos = @legos.filter_by_price(min_price, max_price)
+    end
+
     @markers = @legos.geocoded.map do |lego|
       {
         lat: lego.latitude,
@@ -71,5 +84,9 @@ class LegosController < ApplicationController
 
   def lego_params
     params.require(:lego).permit(:name, :price, :pieces, :description, :address, :photo)
+  end
+
+  def filtering_params(params)
+    params.slice(:pieces, :price)
   end
 end

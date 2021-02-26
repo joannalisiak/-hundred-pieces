@@ -16,4 +16,25 @@ class Lego < ApplicationRecord
       booking.user == user
     end
   end
+
+  scope :filter_by_pieces, -> (min, max) { where('pieces > ? AND pieces < ?', min, max) }
+
+  scope :filter_by_price, -> (min, max) { where('price > ? AND price < ?', min, max) }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_description,
+    against: {
+      name: "A",
+      description: "B"
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_location,
+    against: [ :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
